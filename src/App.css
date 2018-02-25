@@ -1,0 +1,15 @@
+.container {
+  height: 50vh;
+  width: 100vw;
+}
+
+.container > div {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 50vh;
+  margin: 0vh;
+  text-align: center;
+  font-size: 22vw;
+}
