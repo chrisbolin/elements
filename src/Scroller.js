@@ -63,15 +63,14 @@ class Scroller extends Component {
   renderChildren() {
     const { pagesData, renderPage } = this.props;
     const { progress } = this.state;
+
+    const normalizedProgress = snap(progress, pagesData.length);
+
     return pagesData.map((data, index) => {
       return renderPage({
         data,
         index,
-        progress: pageProgress(
-          snap(progress, pagesData.length),
-          pagesData.length,
-          index
-        )
+        progress: pageProgress(normalizedProgress, pagesData.length, index)
       });
     });
   }

@@ -1,5 +1,5 @@
 .container {
-  height: 50vh;
+  height: 100vh;
   width: 100vw;
 }
 
@@ -8,8 +8,12 @@
   align-content: center;
   justify-content: center;
   flex-direction: column;
-  height: 50vh;
+  height: 70vh;
   margin: 0vh;
   text-align: center;
   font-size: 22vw;
+}
+
+.container > div:last-of-type {
+  margin-bottom: 30vh;
 }

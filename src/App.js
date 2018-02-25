@@ -4,12 +4,12 @@ import Scroller from "./Scroller";
 
 const Page = ({ data, index, progress }) => {
   const style = {
-    transform: `scale(${Math.max(progress, 0.2)})`,
+    transform: `scale(${Math.max(progress, 0.5)})`,
     backgroundColor: `hsla(${70 * index}, 100%, 45%, 0.3)`
   };
   return (
     <div style={style} key={index}>
-      {Math.round(progress * 1000)}
+      {data}
     </div>
   );
 };
