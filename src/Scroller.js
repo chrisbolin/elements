@@ -21,15 +21,14 @@ class Scroller extends Component {
     this.state = {
       progress: 0
     };
-    this.onScroll = this.onScroll.bind(this);
   }
 
   componentDidMount() {
-    window.addEventListener("scroll", this.onScroll);
+    window.addEventListener("scroll", this.onScrollThrottled);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.onScroll);
+    window.removeEventListener("scroll", this.onScrollThrottled);
   }
 
   render() {
@@ -77,7 +76,11 @@ class Scroller extends Component {
     });
   }
 
-  onScroll() {
+  onScrollThrottled = () => {
+    window.requestAnimationFrame(this.onScroll);
+  };
+
+  onScroll = () => {
     const { scrollingPixelsPerPage, pagesData } = this.props;
     const scrollTop = window.scrollY;
 
@@ -92,7 +95,7 @@ class Scroller extends Component {
 
     this.containerRef.scrollTop =
       containerHeight * snap(progress, pagesData.length);
-  }
+  };
 }
 
 export default Scroller;
