@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 const cycles = totalPages => totalPages - 1;
 
@@ -16,6 +17,20 @@ const pageProgress = (progress, totalPages, pageIndex) =>
   );
 
 class Scroller extends Component {
+  static propTypes = {
+    pagesData: PropTypes.array.isRequired,
+    renderPage: PropTypes.func.isRequired,
+    containerClassName: PropTypes.string,
+    scrollingBackgroundClassName: PropTypes.string,
+    scrollingPixelsPerPage: PropTypes.number
+  };
+
+  static defaultProps = {
+    containerClassName: "",
+    scrollingBackgroundClassName: "",
+    scrollingPixelsPerPage: 1000
+  };
+
   constructor() {
     super();
     this.state = {
@@ -35,7 +50,7 @@ class Scroller extends Component {
     const {
       pagesData,
       containerClassName,
-      backgroundClassName,
+      scrollingBackgroundClassName,
       scrollingPixelsPerPage
     } = this.props;
 
@@ -48,7 +63,7 @@ class Scroller extends Component {
     };
 
     return (
-      <div className={backgroundClassName} style={scrollerStyle}>
+      <div className={scrollingBackgroundClassName} style={scrollerStyle}>
         <div
           style={containerStyle}
           ref={c => (this.containerRef = c)}

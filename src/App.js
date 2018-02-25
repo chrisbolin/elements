@@ -19,8 +19,6 @@ const lines = "united states of america".split(" ");
 const App = () => (
   <Scroller
     containerClassName="container"
-    backgroundClassName="background"
-    scrollingPixelsPerPage={1000}
     pagesData={lines}
     renderPage={Page}
   />
