@@ -1,18 +1,17 @@
 import React, { Component } from "react";
 
-const cycles = totalChildren => totalChildren - 1;
+const cycles = totalPages => totalPages - 1;
 
-const snap = (value, totalChildren) =>
+const snap = (value, totalPages) =>
   value +
-  Math.sin(2 * Math.PI * value * cycles(totalChildren) + Math.PI) *
+  Math.sin(2 * Math.PI * value * cycles(totalPages) + Math.PI) *
     0.155 /
-    cycles(totalChildren);
+    cycles(totalPages);
 
-const childProgress = (progress, totalChildren, childIndex) =>
+const pageProgress = (progress, totalPages, pageIndex) =>
   Math.max(
     1 -
-      Math.abs(childIndex / cycles(totalChildren) - progress) *
-        cycles(totalChildren),
+      Math.abs(pageIndex / cycles(totalPages) - progress) * cycles(totalPages),
     0
   );
 
@@ -35,14 +34,14 @@ class Scroller extends Component {
 
   render() {
     const {
-      sectionsData,
+      pagesData,
       containerClassName,
       backgroundClassName,
-      scrollingPixelsPerSection
+      scrollingPixelsPerPage
     } = this.props;
 
     const scrollerStyle = {
-      height: sectionsData.length * scrollingPixelsPerSection
+      height: pagesData.length * scrollingPixelsPerPage
     };
     const containerStyle = {
       position: "fixed",
@@ -63,15 +62,15 @@ class Scroller extends Component {
   }
 
   renderChildren() {
-    const { sectionsData, renderSection } = this.props;
+    const { pagesData, renderPage } = this.props;
     const { progress } = this.state;
-    return sectionsData.map((data, index) => {
-      return renderSection({
+    return pagesData.map((data, index) => {
+      return renderPage({
         data,
         index,
-        childProgress: childProgress(
-          snap(progress, sectionsData.length),
-          sectionsData.length,
+        progress: pageProgress(
+          snap(progress, pagesData.length),
+          pagesData.length,
           index
         )
       });
@@ -79,12 +78,12 @@ class Scroller extends Component {
   }
 
   onScroll() {
-    const { scrollingPixelsPerSection, sectionsData } = this.props;
+    const { scrollingPixelsPerPage, pagesData } = this.props;
     const scrollTop = window.scrollY;
 
     const progress =
       scrollTop /
-      (sectionsData.length * scrollingPixelsPerSection - window.innerHeight);
+      (pagesData.length * scrollingPixelsPerPage - window.innerHeight);
 
     const containerHeight =
       this.containerRef.scrollHeight - this.containerRef.clientHeight;
@@ -92,7 +91,7 @@ class Scroller extends Component {
     this.setState({ progress });
 
     this.containerRef.scrollTop =
-      containerHeight * snap(progress, sectionsData.length);
+      containerHeight * snap(progress, pagesData.length);
   }
 }
 
