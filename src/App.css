@@ -1,23 +1,27 @@
 .container {
   height: 100vh;
   width: 100vw;
+  background-color: black;
 }
 
-.container > div {
+.page {
   display: flex;
+  color: hsla(0, 0%, 100%, 0.9);
   align-content: center;
   justify-content: center;
   flex-direction: column;
-  height: 70vh;
+  height: 90vh;
   text-align: center;
-  font-size: 22vw;
+  font-size: 16vw;
   box-sizing: border-box;
+  border: 10px solid hsla(0, 0%, 100%, 0.9);
+  margin: auto;
 }
 
-.container > div:first-of-type {
-  margin-top: 15vh;
+.page:first-of-type {
+  margin-top: 5vh;
 }
 
-.container > div:last-of-type {
-  margin-bottom: 15vh;
+.page:last-of-type {
+  margin-bottom: 5vh;
 }
