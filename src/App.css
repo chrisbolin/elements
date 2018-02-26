@@ -15,7 +15,7 @@
   font-size: 16vw;
   box-sizing: border-box;
   border: 10px solid hsla(0, 0%, 100%, 0.9);
-  margin: auto;
+  margin: 0 5vh;
 }
 
 .page:first-of-type {
