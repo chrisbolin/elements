@@ -1,27 +1,26 @@
-.container {
-  height: 100vh;
-  width: 100vw;
-  background-color: black;
-}
-
 .page {
+  height: 100vh;
+  min-height: 500px;
   display: flex;
-  color: hsla(0, 0%, 100%, 0.9);
-  align-content: center;
   justify-content: center;
   flex-direction: column;
-  height: 90vh;
-  text-align: center;
-  font-size: 16vw;
+  max-width: 800px;
+  margin: auto;
+  padding: 0 10px;
+}
+
+.number {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.contact {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: hsl(0, 0%, 94%);
+  height: 400px;
+  margin: 0 auto;
+  border: 10px solid black;
   box-sizing: border-box;
-  border: 10px solid hsla(0, 0%, 100%, 0.9);
-  margin: 0 5vh;
-}
-
-.page:first-of-type {
-  margin-top: 5vh;
-}
-
-.page:last-of-type {
-  margin-bottom: 5vh;
 }
