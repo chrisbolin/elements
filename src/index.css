@@ -23,7 +23,7 @@ body {
   position: relative;
 }
 
-.page .footer {
+.footer {
   position: absolute;
   bottom: 0;
   text-align: center;
@@ -31,11 +31,7 @@ body {
   margin-bottom: 10px;
 }
 
-.page .first-footer {
-  font-size: 40px;
-}
-
-.page .last-footer {
+.footer.first-footer {
   font-size: 40px;
 }
 
@@ -51,7 +47,7 @@ body {
   background-color: hsl(0, 0%, 94%);
   height: 400px;
   margin: 0 auto;
-  border: 10px solid #0d0d0d;
+  border: 10px solid black;
   box-sizing: border-box;
 }
 
@@ -61,10 +57,20 @@ body {
   min-height: 680px;
   background-color: #0d0d0d;
   color: white;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover .contents {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  max-width: 1400px;
+  max-height: 1000px;
+  position: relative;
 }
 
 .cover a {
