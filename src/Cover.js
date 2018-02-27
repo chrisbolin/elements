@@ -17,7 +17,7 @@ const Cover = () => (
       <Link href="https://thedisconnect.co/one/">The Disconnect</Link>.
     </div>
     <div className="text footnote">
-      — <Link href="https://chris.bolin.co">Chris Bolin</Link>, 2018
+      <Link href="https://chris.bolin.co">Chris Bolin</Link>, 2018
     </div>
   </div>
 );

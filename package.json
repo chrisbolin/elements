@@ -9,8 +9,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "deploy": "react-scripts build && rm -rf docs && cp -r build docs",
+    "deploy": "echo 'bro. window.generateStaticSite()'",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
