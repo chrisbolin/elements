@@ -36,7 +36,6 @@ const Page = ({
 };
 
 const firstPiece = Contact11;
-const lastPiece = Contact02;
 
 const otherPieces = [
   Contact06,
@@ -48,10 +47,11 @@ const otherPieces = [
   Contact09,
   Contact10,
   Contact12,
-  Contact15
+  Contact15,
+  Contact02
 ];
 
-const total = otherPieces.length + 2;
+const total = otherPieces.length + 1;
 
 const App = () => (
   <div className="app">
@@ -66,7 +66,6 @@ const App = () => (
     {otherPieces.map((page, index) => (
       <Page component={page} key={index} number={index + 2} total={total} />
     ))}
-    <Page component={lastPiece} number={total} total={total} footer="(end)" />
   </div>
 );
 
