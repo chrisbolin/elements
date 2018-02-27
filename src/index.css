@@ -3,6 +3,7 @@ body {
   font-weight: 400;
   margin: 0;
   background-color: #0d0d0d;
+  color: #0d0d0d;
 }
 
 .app {
@@ -19,6 +20,23 @@ body {
   max-width: 800px;
   margin: auto;
   padding: 0 10px;
+  position: relative;
+}
+
+.page .footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.page .first-footer {
+  font-size: 40px;
+}
+
+.page .last-footer {
+  font-size: 40px;
 }
 
 .number {
@@ -80,4 +98,9 @@ body {
 
 .cover .text.footnote {
   text-align: right;
+}
+
+::selection {
+  color: #5165ff;
+  background-color: hsl(0, 58%, 50%);
 }
